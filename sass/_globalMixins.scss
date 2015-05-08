@@ -1,0 +1,217 @@
+/* make sure $useIEFilters is set*/
+
+$legacy-support-for-ie6: false;
+
+/* slize functions */
+@function px2em($px, $contextPXSize : $base-font-size ){
+	@return ( $px / $contextPXSize ) * 1em;
+}
+
+@function lineheight( $fontSizePx,$lineHeightPx ) {
+	@return ( $lineHeightPx / $fontSizePx );
+}
+
+@function px2percent ($px,$contextSize) {
+	@return ( $px * 100 / $contextSize) * 1%;
+}
+
+/* simple grid function */
+
+@mixin antialiasing( $type:antialiased ) {
+	/* antialiased, none, subpixel-antialiased*/
+	-webkit-font-smoothing: $type;
+	font-smoothing: $type;
+	font-smooth: always;
+}
+
+@mixin inlinebox( $align:top, $ie: $legacy-support-for-ie ) {
+	display: -moz-inline-stack;
+	display: inline-block;
+
+	@if $ie == true {
+		*display: inline;
+		*zoom: 1;
+	}
+
+	vertical-align: $align;
+}
+
+
+@mixin notlist {
+	padding: 0; margin: 0;
+	list-style: none;
+}
+
+@mixin arrow( $size: 20px, $color: #000, $direction: right){
+	width: 0; height: 0;
+	border: $size solid transparent;
+
+	@if $direction == right {
+		border-left-color: $color;
+		border-right: none;
+	}
+
+	@if $direction == left {
+		border-right-color: $color;
+		border-left: none;
+	}
+
+	@if $direction == up {
+		border-bottom: $color;
+		border-top: none;
+	}
+
+	@if $direction == down {
+		border-top: $color;
+		border-bottom: none;
+	} 
+
+}
+
+@mixin linear-gradient($from, $to, $ie: $legacy-support-for-ie) {
+	@if $ie == true { background-color: $to; }
+	
+	@include background-image( linear-gradient($from,$to) );
+
+	@if $ie == true { 
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}'));
+	}
+}
+
+@mixin rotate( $degrees, $ie: $legacy-support-for-ie ) {
+	-webkit-transform: rotate( $degrees );
+	-moz-transform: rotate( $degrees );
+	-ms-transform: rotate( $degrees );
+	-o-transform: rotate( $degrees );
+	transform: rotate( $degrees );
+
+	@if $ie == true { 
+		filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+		zoom: 1;
+	}
+}
+
+@mixin borderbox( $type : "border-box" ){
+	@include box-sizing( $type );
+}
+
+@mixin background-size( $param: auto ) {
+	-webkit-background-size: $param;
+	-moz-background-size: $param;
+	-o-background-size: $param;
+	background-size: $param;
+}
+
+@mixin opacity ($opacity, $ie: $legacy-support-for-ie) {
+	@if $ie == true {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity*100})";
+	}
+	filter: alpha(opacity=$opacity*100);
+	-moz-opacity:$opacity;
+	-khtml-opacity: $opacity;
+	-webkit-opacity: $opacity;
+	opacity: $opacity;
+}
+
+@mixin box-shadow ($x, $y, $offset, $hex, $ie: $legacy-support-for-ie) {
+	-moz-box-shadow: $x $y $offset $hex;
+	-webkit-box-shadow: $x $y $offset $hex;
+	box-shadow: $x $y $offset $hex;
+	
+	@if $ie == true {
+		$iecolor: '#' + red($hex) + green($hex) + blue($hex);
+		filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}');
+		-ms-filter: quote(progid:DXImageTransform.Microsoft.dropshadow(OffX=#{$x}, OffY=#{$y}, Color='#{$iecolor}'));
+	}
+}
+
+@mixin border-image ($path, $offsets, $repeats) {
+	-moz-border-image: $path $offsets $repeats;
+	-o-border-image: $path $offsets $repeats;
+	-webkit-border-image: $path $offsets $repeats;
+	border-image: $path $offsets $repeats;
+}
+
+@mixin perspective($perspective) {
+	-moz-perspective: $perspective;
+	-ms-perspective: $perspective;
+	-webkit-perspective: $perspective;
+	perspective: $perspective;
+	
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+@mixin transform ($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+@mixin scale ($size) {
+	@include transform(scale(#{$size}));
+}
+
+@mixin matrix ($a, $b, $c, $d, $e, $f) {
+	-moz-transform: matrix($a, $b, $c, $d, #{$e}px, #{$f}px);
+	-o-transform: matrix($a, $b, $c, $d, $e, $f);
+	-ms-transform: matrix($a, $b, $c, $d, $e, $f);
+	-webkit-transform: matrix($a, $b, $c, $d, $e, $f);
+	transform: matrix($a, $b, $c, $d, $e, $f);
+}
+
+
+@mixin fontFace( $fontName, $path: "", $weight: normal, $style: none, $fileName: $fontName, $svg:0 ) {
+	$src: url("#{$path}#{$fileName}.eot?iefix") format("eot"), 
+		  url("#{$path}#{$fileName}.woff") format("woff"),
+		  url("#{$path}#{$fileName}.ttf") format("truetype");
+
+	@if $svg != 0 {
+		$src: $src, url("#{$path}#{$fileName}.svg##{$fileName}") format("svg");
+	}
+
+	@font-face {
+	  font-family: $fontName;
+	  			   src: url("#{$path}#{$fileName}.eot");
+				   src: $src;
+
+	  font-weight: $weight;
+	  font-style: $style;
+	}
+}
+
+/* col system */
+/* usage:
+ * cols:
+ * @include cols(12);
+ * tabulations:
+ * @include cols(12,70px,margin-left,tab);
+ */
+
+@function colPosition( $position:0,$colWidth:80px ){
+	@return $position * $colWidth;
+}
+
+@mixin cols( $maxCols:12,$colWidth:80px,$attr:width,$class-slug:col ){
+	@for $i from 0 through $maxCols {
+  		.#{$class-slug}-#{$i} {
+    		#{$attr}: px2em( colPosition($i,$colWidth) );
+    	}
+   	}
+}
+
+@mixin box-shadow($shadow-1: default, $shadow-2: false, $shadow-3: false, $shadow-4: false, $shadow-5: false, $shadow-6: false, $shadow-7: false, $shadow-8: false, $shadow-9: false, $shadow-10: false) {
+  @if $shadow-1 == default {
+    $shadow-1: -compass-space-list(compact(if($default-box-shadow-inset, inset, false), $default-box-shadow-h-offset, $default-box-shadow-v-offset, $default-box-shadow-blur, $default-box-shadow-spread, $default-box-shadow-color)); }
+  $shadow: compact($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10);
+  @include experimental(box-shadow, $shadow, -moz, -webkit, not -o, not -ms, not -khtml, official); }

@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+@import "compass";
+
+@import "globalMixins";
+@import "normalize";
+
+
+/*------------------------------------*\
+    FONT-FACE
+\*------------------------------------*/
+@font-face {
+  font-family: "DinLight";
+  src: url('../fonts/dinlight/din-light-webfont.eot');
+  src: url('../fonts/dinlight/din-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/dinlight/din-light-webfont.ttf') format('truetype'), url('../fonts/dinlight/din-light-webfont.svg') format('svg'), url('../fonts/dinlight/din-light-webfont.woff') format('woff');
+  font-weight: 100;
+font-style: normal;
+} 
+
+
+html, body {
+	background-color: #222;
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	height: 100%;
+}
+
+body, div {
+	margin: 0; 
+}
+
+#container {
+	width: 100%; height: 100%;
+}
+
+#threecont {
+	width: 100%; height: 100%;
+}
+
+#clockhmid{
+	position: absolute;
+
+	text-align: center;
+
+	margin: 0;
+
+	width: 300px;
+	margin-left:-150px;
+
+	//margin-top: -260px;
+
+	left: 50%;
+	//top: 50%; 
+
+	top:18%;
+}
+
+#clocksid{
+	position: absolute;
+
+	text-align: center;
+
+	margin: 0;
+
+	width: 300px;
+	margin-left:-150px;
+
+	//margin-top: -250px;
+
+	left: 50%;
+	top: 50%;
+}
+
+p, a{	
+	font-family: "DinLight", Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-style: normal;
+	
+	font-size: 40px;
+	color: #ffffff;
+	font-smooth:always;
+} 
+
+footer {
+	position: absolute;
+	z-index: 10;
+	bottom: 13px;
+	right: 9px;
+}
+
+a {
+	font-size: 13px;
+	text-decoration: none;   
+	margin-right: 10px;
+	letter-spacing:100%;
+	font-weight: bold;
+}
+
+a:hover {
+	padding-bottom:1px;
+	border-bottom: 2px solid #ffffff;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    cursor:default;
+}
