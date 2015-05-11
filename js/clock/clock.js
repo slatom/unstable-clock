@@ -21,7 +21,7 @@ function($, ticktack, Clock3d, Buzz ){
 		isTouch = !!('ontouchstart' in window);
 
 		this.mySound = new Buzz.sound( "./mp3/ping", {
-		    formats: [ "mp3" ],
+		    formats: [ "mp3", "ogg" ],
 		    volume: 20,
 		    preload: true,
 		    autoplay: false,
@@ -35,6 +35,9 @@ function($, ticktack, Clock3d, Buzz ){
   		});
 
   		clock3d = new Clock3d();
+
+
+  		$("#loader").hide();
                
 	}
 

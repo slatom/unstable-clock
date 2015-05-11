@@ -7,7 +7,7 @@
 
 requirejs.config({
 	paths: {
-		jquery: 'vendor/jquery-2.1.3',
+		jquery: 'vendor/jquery-2.1.4.min',
 		threejs: 'vendor/three.min',
 		requestAnimationFrame: 'vendor/requestAnimationFrame',
 		ticktack: 'meodai/ticktack',

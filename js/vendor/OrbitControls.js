@@ -263,7 +263,6 @@ THREE.OrbitControls = function ( object, domElement ) {
 			console.warn( 'WARNING: OrbitControls.js encountered an unknown camera type - dolly/zoom disabled.' );
 
 		}
-
 	};
 
 	this.update = function () {

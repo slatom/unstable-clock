@@ -562,15 +562,16 @@ body, div {
 #container {
   width: 100%;
   height: 100%;
+  background-color: #222;
 }
 
-/* line 37, ../sass/styleall.scss */
+/* line 39, ../sass/styleall.scss */
 #threecont {
   width: 100%;
   height: 100%;
 }
 
-/* line 41, ../sass/styleall.scss */
+/* line 43, ../sass/styleall.scss */
 #clockhmid {
   position: absolute;
   text-align: center;
@@ -592,7 +593,7 @@ body, div {
   top: 50%;
 }
 
-/* line 75, ../sass/styleall.scss */
+/* line 74, ../sass/styleall.scss */
 p, a {
   font-family: "DinLight", Helvetica, Arial, sans-serif;
   font-weight: 100;
@@ -602,7 +603,20 @@ p, a {
   font-smooth: always;
 }
 
-/* line 85, ../sass/styleall.scss */
+/* line 84, ../sass/styleall.scss */
+#loader {
+  position: absolute;
+  text-align: center;
+  font-size: 15px;
+  width: 300px;
+  margin-left: -150px;
+  margin-top: -8px;
+  left: 50%;
+  top: 50%;
+  font-weight: bold;
+}
+
+/* line 99, ../sass/styleall.scss */
 footer {
   position: absolute;
   z-index: 10;
@@ -610,7 +624,7 @@ footer {
   right: 9px;
 }
 
-/* line 92, ../sass/styleall.scss */
+/* line 106, ../sass/styleall.scss */
 a {
   font-size: 13px;
   text-decoration: none;
@@ -619,13 +633,13 @@ a {
   font-weight: bold;
 }
 
-/* line 100, ../sass/styleall.scss */
+/* line 114, ../sass/styleall.scss */
 a:hover {
   padding-bottom: 1px;
   border-bottom: 2px solid #ffffff;
 }
 
-/* line 105, ../sass/styleall.scss */
+/* line 119, ../sass/styleall.scss */
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

@@ -15,7 +15,7 @@ define(
 
 		var sMaterial = new THREE.PointCloudMaterial( {
 			color: 0xFFFFFF,
-			size: .1,
+			size: 1,
 			blending: THREE.AdditiveBlending,
 			transparent: true,
 			sizeAttenuation: false

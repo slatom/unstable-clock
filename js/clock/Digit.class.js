@@ -6,21 +6,21 @@ define (
 	function( $, THREE, MathX ){
 
 
-	var DOTS_PER_LINE = 28;
+	var DOTS_PER_LINE = 23;
 
 	var POS_RANDOM = .6;
-	var POS_Z_RANDOM = 1.1;
+	var POS_Z_RANDOM = .9;
 	var POS_L_RANDOM = .9;
 
-	var MIN_DISTANCE = .4;
+	var MIN_DISTANCE = .43;
 
 	var MAX_CONNECTION = 10;
 
 	var SIZE = 1.5;
 
-	var DELAY = 0.03;
+	var DELAY = 0.05;
 
-	var VELOCITY = 0.001;
+	var VELOCITY = 0.0007;
 
 
 	var p0 = new THREE.Vector3( 0, 0, 0 );
@@ -112,7 +112,9 @@ define (
 
 		var pMaterial = new THREE.PointCloudMaterial( {
 			color: 0xFFFFFF,
-			size: .4,
+			size: 1,
+			blending: THREE.AdditiveBlending,
+			transparent: true,
 			sizeAttenuation: false
 		} );
 
