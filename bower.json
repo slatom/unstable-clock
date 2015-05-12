@@ -1,0 +1,36 @@
+{
+  "name": "unstable clock",
+  "main": "js/main.js",
+  "homepage": "https://github.com/slatom/unstable-clock",
+  "authors": [
+    "Tomasz Slawnikowski"
+  ],
+  "description": "experiment",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "raf",
+    "experiment",
+    "date",
+    "time",
+    "watch",
+    "animation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "buzz": "~1.1.10",
+    "jquery": "~2.1.4",
+    "requestAnimationFrame": "~0.0.22",
+    "three.js": "latest",
+    "requirejs": "~2.1.17",
+    "ticktack.js": "latest"
+  }
+}

@@ -28,6 +28,9 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 
+bower_components
+node_modules
+
 # Thumbnails
 ._*
 

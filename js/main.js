@@ -7,20 +7,18 @@
 
 requirejs.config({
 	paths: {
-		jquery: 'vendor/jquery-2.1.4.min',
+		jquery: '../bower_components/jquery/dist/jquery.min',
+		requestAnimationFrame: '../bower_components/requestAnimationFrame/app/requestAnimationFrame',
+		ticktack: '../bower_components/ticktack.js/ticktack',
+		buzz: '../bower_components/buzz/src/buzz',
+
 		threejs: 'vendor/three.min',
-		requestAnimationFrame: 'vendor/requestAnimationFrame',
-		ticktack: 'meodai/ticktack',
 		orbitcontrols: 'vendor/OrbitControls',
-		mathx: 'slawnikowski/MathX',
-		buzz: 'vendor/buzz.min'
+		mathx: 'slawnikowski/MathX'
 	},
 
 	shim: {
-		'jquery': { exports: 'jQuery' },
 		'threejs': { exports: 'THREE' },
-		'orbitcontrols': { exports: 'OrbitControls' },
-		'ticktack': { deps: ['requestAnimationFrame', 'jquery'] },
 		'orbitcontrols': { deps: ['threejs'] }
 	}
 });
