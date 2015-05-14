@@ -1,6 +1,5 @@
 bower_components
 node_modules
-*.css
 .sass-cache
 /css
 css
