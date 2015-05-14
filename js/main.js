@@ -11,7 +11,7 @@ requirejs.config({
 		requestAnimationFrame: '../bower_components/requestAnimationFrame/app/requestAnimationFrame',
 		ticktack: '../bower_components/ticktack.js/ticktack',
 		buzz: '../bower_components/buzz/src/buzz',
-
+		//threejs: '../bower_components/three.js/three.min',
 		threejs: 'vendor/three.min',
 		orbitcontrols: 'vendor/OrbitControls',
 		mathx: 'slawnikowski/MathX'
