@@ -1,3 +1,22 @@
+bower_components
+node_modules
+*.css
+.sass-cache
+/css
+css
+screenshots
+
+# Sass Cache remove #
+#####################
+*.sass-cache
+
+# Ignore Sass' cache
+/.sass-cache
+ 
+# Ignore CSS & Map File
+*.css
+*.map
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -27,13 +46,6 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
-
-bower_components
-node_modules
-/.sass-cache
-/css
-/screenshots
-
 
 # Thumbnails
 ._*
