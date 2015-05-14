@@ -30,9 +30,9 @@ $RECYCLE.BIN/
 
 bower_components
 node_modules
-.sass-cache
-css
-screenshots
+/.sass-cache
+/css
+/screenshots
 
 
 # Thumbnails
